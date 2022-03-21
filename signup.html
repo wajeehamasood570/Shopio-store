@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div  class="mainform">
+    <form class="form" id="form" onsubmit="signup()" method="post" action="index.html">
+        <div class="spacer-30"></div>
+        <div class="container">
+            <h1 class="text-center">SignUp Form</h1>
+            <div class="mb-3">
+                <label for="username" class="form-label">Name:</label>
+                <input type="name" class="form-control" id="username" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="city" class="form-label">City:</label>
+                <input type="city" class="form-control" id="city" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="number" class="form-label">Number:</label>
+                <input type="number" class="form-control" id="number" aria-describedby="emailHelp">
+              </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+        
+        <button type="submit" class="btn btn-primary"  onclick="newDoc()">Submit</button>
+        <p class="text-center">Aready a member? <a href ="login.html" >Login</a></p>
+    </div>
+      </form>
+    </div>
+</body>
+
+<script>
+
+
+
+       // define function
+
+    //   function validate(){
+    //   // const username= username.value;
+    // const city= city.value;
+    // const number = number.value;
+    // const email = email.value;
+    // const password = passwrd.value;
+    // }
+
+
+    function signup(e){
+    // add event listener
+      event.preventDefault();
+      console.log("working");
+
+
+      const form= document.getElementById('form').value;
+    const username= document.getElementById('username').value;
+    const city= document.getElementById('city').value;
+    const number = document.getElementById('number').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+
+
+      // validate();
+   
+
+    var user = {
+      email: email,
+      username: username,
+      password: password,
+    };
+
+    var json = JSON.stringify(user);
+    localStorage.setItem(username, json);
+    alert("Welcome " + username + " you are succefully registered");
+
+   
+}
+
+function newDoc(){
+    window.location.href = "index.html"; 
+  }
+</script>
+</html>

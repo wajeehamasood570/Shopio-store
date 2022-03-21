@@ -12,10 +12,11 @@
 </head>
 <body>
     <div  class="mainform">
-    <form class="form" id="form" onsubmit="login()">
+    <form class="form" id="form" onsubmit="logout()">
         <div class="spacer-30"></div>
         <div class="container">
-            <h1 class="text-center">Login Form</h1>
+            <h1 class="text-center">Logout Form</h1>
+            <h5>Please Enter details to logout</h5>
             <div class="mb-3">
                 <label for="username" class="form-label">Name:</label>
                 <input type="name" class="form-control" id="username" aria-describedby="emailHelp">
@@ -25,8 +26,7 @@
           <input type="password" class="form-control" id="password">
         </div>
         
-        <button type="submit" class="btn btn-primary" onclick="newDoc()">Submit</button>
-        <p class="text-center">Do you want to logout? <a href ="logout.html" >Logout</a></p>
+        <button type="submit" class="btn btn-primary" onclick="">Submit</button>
     </div>
       </form>
     </div>
@@ -36,7 +36,18 @@
 
 
 
-    function login(e){
+       // define function
+
+    //   function validate(){
+    //   // const username= username.value;
+    // const city= city.value;
+    // const number = number.value;
+    // const email = email.value;
+    // const password = passwrd.value;
+    // }
+
+
+    function logout(e){
     // add event listener
       event.preventDefault();
       console.log("working");
@@ -50,29 +61,13 @@
 
     
 
-    var user =  localStorage.getItem(username);
-    var data = JSON.parse(user);
-    console.log(data);
-
-    if(user == null) {
-        alert("Please write username");
-    }
-    else if(username !== data.username){
-        alert("Please Signup First");
-    }
-   else if(username == data.username && password == data.password){
-       alert("Welcome you are succefully login");
-   }
-   else if(password == null){
-    alert("Please enter password");
-   }
-   else{
-       alert("Wrong Password")
-   }
-  }
-
-  function newDoc(){
-    window.location.href = "index.html"; 
+    // var user =  localStorage.removeItem(username);
+    // var data = JSON.parse(user);
+    // console.log(data);
+    //     alert("Successfully logout");
+    var json = JSON.stringify(user);
+    localStorage.removeItem(username, json);
+    alert("You are successfully logout");
   }
 </script>
 </html>

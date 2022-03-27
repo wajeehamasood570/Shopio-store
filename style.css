@@ -593,7 +593,7 @@ width: 169px!important;
  }
  @media screen and (max-width: 400px) {
    .aa-cartbox{
-     display: none;
+     display: block;
    }
    .aa-header-top{
      /* display: none; */

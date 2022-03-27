@@ -1,3 +1,58 @@
+let products = [
+  {
+    name: "Redmi 9c",
+    price: "17,500",
+  },
+  {
+    name: "USB Wired Mouse",
+    price: "1,780",
+  },
+  {
+    name: "Acer ChromeBook",
+    price: "16,000",
+  },
+  {
+    name: "LED Sports Watch",
+    price: "1,399",
+  },
+  {
+    name: "One-Plus Nord",
+    price: "53,000",
+  },
+  {
+    name: "Headset cable",
+    price: "500",
+  },
+  {
+    name: "Tripod Stand",
+    price: "170",
+  },
+  {
+    name: "MP3 Player Bluetooth",
+    price: "300",
+  },
+  {
+    name: "eco Star LED",
+    price: "33,000",
+  },
+  {
+    name: "TV Remote Controller",
+    price: "175",
+  },
+  {
+    name: "Samsung Galaxy",
+    price: "60,000",
+  },
+  {
+    name: "Psp games",
+    price: "10,000",
+  },
+
+];
+
+
+
+
 const hamburer = document.querySelector(".hamburger");
 const navList = document.querySelector(".nav-list");
 
@@ -146,19 +201,22 @@ window.onload = check();
 
 let carts = document.querySelectorAll('.add-cart');
 
+
 for (i = 0; i < carts.length; i++) {
   console.log("im in carts wohoo");
   carts[i].addEventListener('click', () => {
     console.log("added to cart");
-    cartNumbers();
+    console.log(i);
+    cartNumbers(products[i]);
+
   })
 }
 
 
-function cartNumbers() {
+function cartNumbers(product) {
+  console.log("product click is", product);
   let productNumber = localStorage.getItem('cartNumber')
-  productNumber = parseInt(productNumber);
-  console.log(productNumber);
+  productNumber = parseInt(productNumber);  
   if (productNumber) {
     localStorage.setItem('cartNumber', productNumber + 1);
     document.querySelector('.aa-cart-notify').textContent = productNumber + 1;
@@ -170,7 +228,7 @@ function cartNumbers() {
 
 }
 
-function onLoadCartNumber(){
+function onLoadCartNumber() {
   productNumber = localStorage.getItem('cartNumber');
   if (productNumber) {
     document.querySelector('.aa-cart-notify').textContent = productNumber;

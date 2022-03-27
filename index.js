@@ -23,21 +23,21 @@ if (popup) {
   });
 }
 
-const form= document.getElementById('form');
-const username= document.getElementById('username');
-const city= document.getElementById('city');
+const form = document.getElementById('form');
+const username = document.getElementById('username');
+const city = document.getElementById('city');
 const number = document.getElementById('number');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 
 
 //signup
-function signup(e){
+function signup(e) {
   // add event listener
-    console.log("working");
-    const form= document.getElementById('form').value;
-  const username= document.getElementById('username').value;
-  const city= document.getElementById('city').value;
+  console.log("working");
+  const form = document.getElementById('form').value;
+  const username = document.getElementById('username').value;
+  const city = document.getElementById('city').value;
   const number = document.getElementById('number').value;
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
@@ -56,8 +56,8 @@ function signup(e){
   alert("Welcome " + username + " you are succefully registered");
 }
 
-function newlogin(){
-  window.location.href = "login.html"; 
+function newlogin() {
+  window.location.href = "login.html";
 }
 
 
@@ -66,46 +66,46 @@ function newlogin(){
 //login
 
 
-function login(e){
+function login(e) {
   // add event listener
-    console.log("working");
+  console.log("working");
 
 
-    const form= document.getElementById('form').value;
-  const username= document.getElementById('username').value;
+  const form = document.getElementById('form').value;
+  const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  var user =  localStorage.getItem("username");
+  var user = localStorage.getItem("username");
   var data = JSON.parse(user);
   console.log(data);
 
-  if(username !== data.username){
-      alert("Please Signup First");
+  if (username !== data.username) {
+    alert("Please Signup First");
   }
- else if(username == data.username && password == data.password){
-     alert("Welcome you are succefully login");
- }
- else if(password == null){
-  alert("Please enter password");
- }
- else{
-     alert("Wrong Password")
- }
+  else if (username == data.username && password == data.password) {
+    alert("Welcome you are succefully login");
+  }
+  else if (password == null) {
+    alert("Please enter password");
+  }
+  else {
+    alert("Wrong Password")
+  }
 }
 
-function newDoc(){
-  window.location.href = "index.html"; 
+function newDoc() {
+  window.location.href = "index.html";
 }
 
 
 //logout
-function logout(e){
+function logout(e) {
   // add event listener
-    console.log("working");
+  console.log("working");
 
 
-    const form= document.getElementById('form').value;
-  const username= document.getElementById('username').value;
+  const form = document.getElementById('form').value;
+  const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
   var user = localStorage.removeItem("username");
@@ -114,22 +114,26 @@ function logout(e){
   alert("You are successfully logout");
 }
 
+function newDoc() {
+  window.location.href = "index.html";
+}
 
-function check(){
+
+function check() {
   console.log('page is fully loaded');
-  var user =  localStorage.getItem("username");
+  var user = localStorage.getItem("username");
   var data = JSON.parse(user);
   console.log("checking data", data);
-  
-  if(data == null){
-    document.getElementById("signup").style.display= "block";
-    document.getElementById("login").style.display= "block";
-    document.getElementById("logout").style.display= "none";
+
+  if (data === null) {
+    document.getElementById("signup").style.display = "block";
+    document.getElementById("login").style.display = "block";
+    document.getElementById("logout").style.display = "none";
   }
-  else{
-    document.getElementById("signup").style.display= "none";
-  document.getElementById("login").style.display= "none";
-  document.getElementById("logout").style.display= "block";
+  else {
+    document.getElementById("signup").style.display = "none";
+    document.getElementById("login").style.display = "none";
+    document.getElementById("logout").style.display = "block";
   }
 
 }
@@ -138,6 +142,41 @@ function check(){
 window.onload = check();
 
 
-// hide functionality
-// const login = document.getElementById("login");
-// const logout = document.getElementById("logout");
+//// add to cart
+
+let carts = document.querySelectorAll('.add-cart');
+
+for (i = 0; i < carts.length; i++) {
+  console.log("im in carts wohoo");
+  carts[i].addEventListener('click', () => {
+    console.log("added to cart");
+    cartNumbers();
+  })
+}
+
+
+function cartNumbers() {
+  let productNumber = localStorage.getItem('cartNumber')
+  productNumber = parseInt(productNumber);
+  console.log(productNumber);
+  if (productNumber) {
+    localStorage.setItem('cartNumber', productNumber + 1);
+    document.querySelector('.aa-cart-notify').textContent = productNumber + 1;
+  }
+  else {
+    localStorage.setItem('cartNumber', 1);
+    document.querySelector('.aa-cart-notify').textContent = 1;
+  }
+
+}
+
+function onLoadCartNumber(){
+  productNumber = localStorage.getItem('cartNumber');
+  if (productNumber) {
+    document.querySelector('.aa-cart-notify').textContent = productNumber;
+  }
+
+
+}
+
+onLoadCartNumber();

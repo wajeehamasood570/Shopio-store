@@ -31,6 +31,8 @@ left: 25px;
 text-align: center;
     color: white;
 }
+
+
 @Keyframes spin{
 	100%{
 		transform: rotate(360deg);
@@ -594,7 +596,7 @@ width: 169px!important;
      display: none;
    }
    .aa-header-top{
-     display: none;
+     /* display: none; */
    }
  }
  @media screen and (max-width: 380px){
@@ -624,7 +626,7 @@ width: 169px!important;
 .circle{
   margin: 200px auto;
 }
-.aa-header-top-right{
+.aa-header-top-left{
   display: none;
 }
   }

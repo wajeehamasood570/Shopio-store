@@ -202,8 +202,8 @@ window.onload = check();
 let carts = document.querySelectorAll('.add-cart');
 
 
-for (i = 0; i < carts.length; i++) {
-  console.log("im in carts wohoo");
+console.log("im in carts wohoo");
+for (let i = 0; i < carts.length; i++) {
   carts[i].addEventListener('click', () => {
     console.log("added to cart");
     console.log(i);

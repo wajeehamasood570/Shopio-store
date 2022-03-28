@@ -2,50 +2,62 @@ let products = [
   {
     name: "Redmi 9c",
     price: "17,500",
+    inCart : 0,
   },
   {
     name: "USB Wired Mouse",
     price: "1,780",
+    inCart : 0,
   },
   {
     name: "Acer ChromeBook",
     price: "16,000",
+    inCart : 0,
   },
   {
     name: "LED Sports Watch",
     price: "1,399",
+    inCart : 0,
   },
   {
     name: "One-Plus Nord",
     price: "53,000",
+    inCart : 0,
   },
   {
     name: "Headset cable",
     price: "500",
+    inCart : 0,
   },
   {
     name: "Tripod Stand",
     price: "170",
+    inCart : 0,
   },
   {
     name: "MP3 Player Bluetooth",
     price: "300",
+    inCart : 0,
   },
   {
     name: "eco Star LED",
     price: "33,000",
+    inCart : 0,
   },
   {
     name: "TV Remote Controller",
     price: "175",
+    inCart : 0,
   },
   {
     name: "Samsung Galaxy",
     price: "60,000",
+    inCart : 0,
   },
   {
     name: "Psp games",
     price: "10,000",
+    inCart : 0,
   },
 
 ];
@@ -214,7 +226,6 @@ for (let i = 0; i < carts.length; i++) {
 
 
 function cartNumbers(product) {
-  console.log("product click is", product);
   let productNumber = localStorage.getItem('cartNumber')
   productNumber = parseInt(productNumber);  
   if (productNumber) {
@@ -225,6 +236,15 @@ function cartNumbers(product) {
     localStorage.setItem('cartNumber', 1);
     document.querySelector('.aa-cart-notify').textContent = 1;
   }
+
+  setItems(product);
+
+}
+
+function setItems(product){
+  console.log("Inside cart item");
+  console.log("product click is", product);
+  product.inCart = 1;
 
 }
 
